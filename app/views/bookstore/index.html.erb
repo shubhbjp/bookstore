@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Bookstore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+ <body class="body">   
+  <div class="main-container">
+      <form>
+            <div class="inner-form">
+                    <div class="input-field second-wrap">
+                      <input id="search" type="text" placeholder="Search Books?" />
+                      <button class = "" type = "button" id="search_button"> Search</button>
+                    </div>
+            </div>
+      </form>
+      <div class = "books_data">
+          <% if @data.nil? %>
+            <h1> Books Details</h1>
+            <% @books.each do |book| %>
+              <div class="row">
+                  <div class = "col">
+                      <h1><u><b><%=book.title %></b></u></h1>
+                      <p><%= book.about %></p> 
+                  </div>    
+                  <div class = "col">
+                      <p>Category: <%= book.category_name %></p>
+                      <p>Release Date:</p>
+                      <h2> <%= book.publication_date%></h2>
+                  </div>
+                  <div class = "col">
+                      <p>Publishers Details:</p>
+                      <% publication = Publication.find(book.publications_id) %>
+                      <h2><%= publication.name %></h2>
+                      <h5> Email: <%= publication.email %></h5>
+                      <h5> Mobile: <%= publication.contact %></h5>
+                      <p> Address: <%= publication.address %></p>
+                  </div>
+              </div>     
+            <% end %>
+          <% else %>
+            <% if @data.empty? %>
+                <h2> No Books Found </h2>
+            <% else %>
+              <h1> Books Details</h1>
+              <% @data.each do |data| %>
+              <div class="row">
+                  <div class = "col">
+                      <h1><u><b><%=data['title'] %></b></u></h1>
+                      <p><%= data['about'] %></p>
+                  </div>
+                  <div class = "col">
+                      <p>Category: <%= data['category_name'] %></p>
+                      <p>Release Date:</p>
+                      <h2> <%= data['publication_date']%></h2>
+                  </div>
+                  <div class = "col">
+                      <p>Publishers Details:</p>
+                      <% publication = Publication.find(data['publications_id']) %>
+                      <h2><%= publication.name %></h2>
+                      <h5> Email: <%= publication.email %></h5>
+                      <h5> Mobile: <%= publication.contact %></h5>
+                      <p> Address: <%= publication.address %></p>
+                  </div>    
+                  
+              </div>     
+            <% end %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

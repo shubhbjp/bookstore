@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+.body{
+	width:100%;
+	display:block;
+	position:relative;
+  margin:0px;
+}
+
+.main-container{
+	background:lightgrey;
+	color:blue;
+}
+
+.row {
+  padding: 10px;
+  border: 1px blue solid;
+  display:block;
+  position:relative;
+  width:100%;
+}
+
+.col {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+}
+
+.books_data {
+  margin: 40px;
+}
