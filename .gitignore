@@ -4,3 +4,4 @@ node_modules
 tmp/*
 *.map
 *.json
+public/packs/*
