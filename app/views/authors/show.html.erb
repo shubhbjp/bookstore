@@ -1,0 +1,24 @@
+<h1>Listing articles</h1>
+<center>
+<table>
+  <tr>
+    <th class = 'header'>Name</th>
+    <th class = 'header'>Age</th>
+    <th class = 'header'>Properties</th>
+    <th class = 'header'>Delete</th>
+  </tr>
+<% @articles.each do |article| %>
+    <tr>
+      <td class = 'table-prop'><%= article.name %></td>
+      <td class = 'table-prop'><%= article.age %></td>
+      <td class = 'table-prop'><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td class = 'table-prop'><%= link_to 'Delete', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>
+</table>
+
+</center>
+
+	<a href="/articles" class = "back"> Back </a>
