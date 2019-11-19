@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'bookstore#index'
   resources :books
   resource :bookstore
-  get '/search' => 'bookstore#search_list'
+  get '/search' => 'bookstore#index'
 
 end

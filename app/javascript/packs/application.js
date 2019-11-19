@@ -23,9 +23,7 @@ window.onload = function() {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-          document.open();
-          document.write(xhr.response);
-          document.close();
+          window.location.href = '/search?key=' + document.getElementById('search').value.trim()
         }
       };
       xhr.open('GET', '/search?key=' + document.getElementById('search').value.trim());

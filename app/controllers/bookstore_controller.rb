@@ -3,6 +3,7 @@ class BookstoreController < ActionController::Base
 
   def index
     @books = Book.all
+    search_list
   end
 
   def search_list
