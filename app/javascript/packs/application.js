@@ -16,7 +16,7 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-window.onload = function {
+window.onload = function() {
 	var search_button = document.getElementById('search_button');
     if (search_button) {
     search_button.onclick = function () {
